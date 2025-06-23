@@ -9,9 +9,9 @@ description: ltv lens deployment on DataOS
 
 lens:
   compute: runnable-default # Compute Resource that Lens should utilize (mandatory)
-  secrets: # Referred Instance-secret configuration (**mandatory for private code repository, not required for public repository)
-    - name: gourabgithub-r # Referred Instance Secret name (mandatory)
-      allKeys: true # All keys within the secret are required or not (optional)
+  # secrets: # Referred Instance-secret configuration (**mandatory for private code repository, not required for public repository)
+  #   - name: gourabgithub-r # Referred Instance Secret name (mandatory)
+  #     allKeys: true # All keys within the secret are required or not (optional)
 
     # Data Source configuration     
   # source:
@@ -23,8 +23,8 @@ lens:
     catalog: sstdepot
     
   repo: # Lens model code repository configuration (mandatory)
-    url: https://github.com/Acies-Gourab-Pati/tmdc-ltv/ # URL of repository containing the Lens model (mandatory)
-    lensBaseDir: tmdc-ltv # Relative path of the Lens 'model' directory in repository (mandatory)
+    url: https://github.com/acies-vignesh/TMDC-LTV-COPY # URL of repository containing the Lens model (mandatory)
+    lensBaseDir: TMDC-LTV-COPYU # Relative path of the Lens 'model' directory in repository (mandatory)
     syncFlags: # Additional flags used during synchronization (optional)
       - --ref=main # Repository Branch (optional)
 # API Instances configuration
