@@ -1,0 +1,63 @@
+# RESOURCE META SECTION
+name: ltv-lens-model-3      # Lens Resource name (mandatory)
+version: v1alpha             # Lens manifest version (mandatory)
+layer: user                  # DataOS Layer (optional)
+type: lens                   # Type of Resource (mandatory)
+tags:                        # Tags (optional)
+    - lens
+description: ltv lens deployment on DataOS 
+
+lens:
+  compute: runnable-default # Compute Resource that Lens should utilize (mandatory)
+  secrets: # Referred Instance-secret configuration (**mandatory for private code repository, not required for public repository)
+    - name: gourabgithub-r # Referred Instance Secret name (mandatory)
+      allKeys: true # All keys within the secret are required or not (optional)
+
+    # Data Source configuration     
+  # source:
+  #   type: depot 
+  #   name: sstdepot
+  source:
+    type: minerva
+    name: miniature
+    catalog: sstdepot
+    
+  repo: # Lens model code repository configuration (mandatory)
+    url: https://github.com/Acies-Gourab-Pati/tmdc-ltv/ # URL of repository containing the Lens model (mandatory)
+    lensBaseDir: tmdc-ltv # Relative path of the Lens 'model' directory in repository (mandatory)
+    syncFlags: # Additional flags used during synchronization (optional)
+      - --ref=main # Repository Branch (optional)
+# API Instances configuration
+  api:  #(optional)
+    replicas: 1 # Number of API instance replicas (optional)
+    logLevel: info # Logging granularity (optional)
+    resources: # CPU and memory configurations for API Instances (optional)
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 1000m
+        memory: 1048Mi
+  worker:  #(optional)
+    replicas: 1 # Number of Worker replicas (optional)
+    logLevel: info # Logging level for Worker (optional)
+    resources: # CPU and memory configurations for Worker (optional)
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 1000m
+        memory: 1248Mi
+  router:  #(optional)
+    logLevel: info # Level of log detail for Router (optional)
+    resources: # CPU and memory resource specifications for the router (optional)
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 1000m
+        memory: 2548Mi
+
+  metric:
+    logLevel: info
+
