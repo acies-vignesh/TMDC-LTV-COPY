@@ -24,7 +24,7 @@ lens:
     
   repo: # Lens model code repository configuration (mandatory)
     url: https://github.com/acies-vignesh/TMDC-LTV-COPY # URL of repository containing the Lens model (mandatory)
-    lensBaseDir: TMDC-LTV-COPYU # Relative path of the Lens 'model' directory in repository (mandatory)
+    lensBaseDir: TMDC-LTV-COPY # Relative path of the Lens 'model' directory in repository (mandatory)
     syncFlags: # Additional flags used during synchronization (optional)
       - --ref=main # Repository Branch (optional)
 # API Instances configuration
